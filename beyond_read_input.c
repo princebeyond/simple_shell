@@ -40,6 +40,7 @@ char *read_input(int argc, char *argv[])
 		{
 			execute_command(input);
 		}
+		/**printf("%s", PROMPT);*/
 		free(input);
 		input = NULL;
 	}
