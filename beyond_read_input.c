@@ -15,7 +15,10 @@ char *read_input(int argc, char *argv[])
 
 	while (1)
 	{
-		printf("%s", PROMPT);
+		if (isatty(0))
+		{
+			printf("%s", PROMPT);
+		}
 		fflush(stdout);
 		characters = getline(&input, &s, stdin);
 		if (characters == -1)
@@ -40,7 +43,6 @@ char *read_input(int argc, char *argv[])
 		{
 			execute_command(input);
 		}
-		/**printf("%s", PROMPT);*/
 		free(input);
 		input = NULL;
 	}
